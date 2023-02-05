@@ -18,10 +18,13 @@ public class view_vbap extends PApplet {
 
 Vbap v;
 
+int n = 21;
+
+
  public void setup() {
     /* size commented out by preprocessor */;
 
-    v = new Vbap(25);
+    v = new Vbap(n);
 
 }
 
@@ -39,7 +42,6 @@ class Vbap {
     float radius = width/2 - 50;
     float[] pos_rad;
     PVector origin = new PVector(width/2, height/2);
-
 
     Vbap(int ls_num) {
         n = ls_num;
@@ -65,6 +67,12 @@ class Vbap {
         for (PVector p : s) {
             ellipse(p.x, p.y, 15, 15);
         }
+        push();
+        stroke(255);
+        line(0, height/2, width, height/2);
+        line(width/2, 0, width/2, height);
+        pop();
+
     }
 
      public boolean is_intersect(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
@@ -82,7 +90,11 @@ class Vbap {
             float xi = x1 + t * (x2 - x1);
             float yi = y1 + t * (y2 - y1);
             PVector intersect_point = new PVector(xi, yi);
+            push();
+            stroke(255);
+            line(origin.x, origin.y, xi, yi);
             ellipse(xi, yi, 10, 10);
+            pop();
             return true;
         }
         return false;
@@ -111,7 +123,7 @@ class Vbap {
      public void get_source_position(float xsource, float ysource) {
 
         PVector source = new PVector(xsource, ysource);
-        
+
         fill(0, 255, 0);
         ellipse(xsource, ysource, 10, 10);
 

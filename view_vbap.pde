@@ -1,11 +1,10 @@
 
 Vbap v;
+int n = 21;
 
 void setup() {
     size(800, 800);
-
-    v = new Vbap(25);
-
+    v = new Vbap(n);
 }
 
 void draw() {
