@@ -111,11 +111,7 @@ class Vbap {
      public void get_source_position(float xsource, float ysource) {
 
         PVector source = new PVector(xsource, ysource);
-
-        // PVector check_source = source.copy();
-        // check_source.sub(origin);
-        // check_source.normalize();
-        // check_source.mult(radius);
+        
         fill(0, 255, 0);
         ellipse(xsource, ysource, 10, 10);
 
